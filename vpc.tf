@@ -17,6 +17,7 @@ resource "random_string" "suffix" {
 module "vpc" {
   source  = "./modules/vpc/"
 
+  create_vpc           = var.create_vpc ? "true" : "false"
   name                 = "education-vpc"
   cidr                 = "10.0.0.0/16"
   azs                  = data.aws_availability_zones.available.names
